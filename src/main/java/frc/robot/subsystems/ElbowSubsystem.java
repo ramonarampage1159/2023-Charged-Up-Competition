@@ -4,9 +4,12 @@
 
 package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.RelativeEncoder;
+import com.revrobotics.SparkMaxPIDController;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 //import com.revrobotics.SparkMaxPIDController ;
 //import com.revrobotics.RelativeEncoder;
@@ -20,24 +23,56 @@ public class ElbowSubsystem extends SubsystemBase {
   private CANSparkMax elbowLeft = new CANSparkMax(Constants.ElbowMotors.m_elbowLeft, MotorType.kBrushless);
   private CANSparkMax elbowRight = new CANSparkMax(Constants.ElbowMotors.m_elbowRight, MotorType.kBrushless);
 
-  //private SparkMaxPIDController m_elbowPidController;
- // private RelativeEncoder m_elbowEncoder;
+  private SparkMaxPIDController m_elbowLeftPidController;
+  private SparkMaxPIDController m_elbowRightPidController;
 
-  //public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput;
+  private RelativeEncoder m_elbowLeftEncoder;
+  private RelativeEncoder m_elbowRightEncoder;
+
+
+  public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput;
 
 
   MotorControllerGroup m_elbowMotors = new MotorControllerGroup(elbowLeft, elbowRight);
 
-  
-   
-
-
-  public ElbowSubsystem() {
+  public ElbowSubsystem() {    
     //elbowRight.follow(elbowLeft);
+    
+    System.out.println("ElbowSubsystem Initiated");
     elbowRight.setInverted(true);
     elbowLeft.setInverted(false);
 
+    m_elbowLeftPidController = elbowLeft.getPIDController();
+    m_elbowRightPidController = elbowRight.getPIDController();
+    m_elbowLeftEncoder = elbowLeft.getEncoder();
+    m_elbowRightEncoder = elbowRight.getEncoder();
+    
+    kP = Constants.ElbowPIDCoefficients.m_ElbowkP; 
+    kI = Constants.ElbowPIDCoefficients.m_ElbowkI;
+    kD = Constants.ElbowPIDCoefficients.m_ElbowkD; 
+    kIz = Constants.ElbowPIDCoefficients.m_ElbowkIz; 
+    kFF = Constants.ElbowPIDCoefficients.m_ElbowkFF; 
+    kMaxOutput = Constants.ElbowPIDCoefficients.m_ElbowkMaxOutput; 
+    kMinOutput = Constants.ElbowPIDCoefficients.m_ElbowkMinOutput;
+
+    setPIDValues(kP,kI,kD,kIz,kFF,kMinOutput,kMaxOutput);
+
+  
+
+    SmartDashboard.putNumber("P Gain", kP);
+    SmartDashboard.putNumber("I Gain", kI);
+    SmartDashboard.putNumber("D Gain", kD);
+    SmartDashboard.putNumber("I Zone", kIz);
+    SmartDashboard.putNumber("Feed Forward", kFF);
+    SmartDashboard.putNumber("Max Output", kMaxOutput);
+    SmartDashboard.putNumber("Min Output", kMinOutput);
+    SmartDashboard.putNumber("Set Rotations", 0);
+ 
+  
+    
+    
   }
+
 
   @Override
   public void periodic() {
@@ -48,6 +83,32 @@ public class ElbowSubsystem extends SubsystemBase {
     m_elbowMotors.set(opLeftStickY);
   }
 
+  public void setElbowReference(double speed, CANSparkMax.ControlType type) {
+    //m_elbowMotors.set(speed);
 
+    //m_elbowLeftPidController.setReference(speed, type);
+    m_elbowRightPidController.setReference(speed, type);
+
+  }
+ 
+  public void setPIDValues(double kP, double kI, double kD, double kIz, double kFF, double kMinOutput, double kMaxOutput){
+
+    System.out.println("setting PID Values");
+/*
+    m_elbowLeftPidController.setP(kP);
+    m_elbowLeftPidController.setI(kI);
+    m_elbowLeftPidController.setD(kD);
+    m_elbowLeftPidController.setIZone(kIz);
+    m_elbowLeftPidController.setFF(kFF);
+    m_elbowLeftPidController.setOutputRange(kMinOutput, kMaxOutput);
+ */
+    m_elbowRightPidController.setP(kP);
+    m_elbowRightPidController.setI(kI);
+    m_elbowRightPidController.setD(kD);
+    m_elbowRightPidController.setIZone(kIz);
+    m_elbowRightPidController.setFF(kFF);
+    m_elbowRightPidController.setOutputRange(kMinOutput, kMaxOutput);
+
+  }
   
 }

@@ -41,7 +41,15 @@ public final class Constants {
     public static final double m_autonomousTime = 40;
 }
     
-  
+  public final class ElbowPIDCoefficients{
+    public static final double m_ElbowkP = 0.1; 
+    public static final double m_ElbowkI = 0;
+    public static final double m_ElbowkD = 0; 
+    public static final double m_ElbowkIz = 0; 
+    public static final double m_ElbowkFF = 0; 
+    public static final double m_ElbowkMaxOutput = 0.15000000596046448; 
+    public static final double m_ElbowkMinOutput = -0.1599999964237213;
+  }
 
    public final class DriverController{
 

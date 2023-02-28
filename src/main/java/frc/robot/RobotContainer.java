@@ -6,6 +6,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.MecanumDriver;
 import frc.robot.commands.PistonClampFunctions;
@@ -41,6 +42,9 @@ public class RobotContainer {
     Robot.m_wrist.setDefaultCommand(new WristPID());
 
    
+    m_chooser.setDefaultOption("Auto Sequence 1", new frc.robot.commands.Auto.AutonSequences.AutonomousSequenceOne());
+    m_chooser.addOption("Auto Sequence 2", new frc.robot.commands.Auto.AutonSequences.AutonomousSequenceTwo());
+    SmartDashboard.putData(m_chooser);
   }
 
   public RobotContainer() {

@@ -9,8 +9,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.MecanumDriver;
 import frc.robot.commands.PistonClampFunctions;
-import frc.robot.commands.WristFunctions;
 import frc.robot.commands.PidCommands.ElbowPID;
+import frc.robot.commands.PidCommands.WristPID;
 
 
 public class RobotContainer {
@@ -38,7 +38,7 @@ public class RobotContainer {
     Robot.m_driveTrain.setDefaultCommand(new MecanumDriver());
     Robot.m_pistonClamp.setDefaultCommand(new PistonClampFunctions());
     Robot.m_elbow.setDefaultCommand(new ElbowPID());
-    Robot.m_wrist.setDefaultCommand(new WristFunctions());
+    Robot.m_wrist.setDefaultCommand(new WristPID());
 
    
   }

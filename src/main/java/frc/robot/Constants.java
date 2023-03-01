@@ -115,4 +115,30 @@ public final class Constants {
     public static final double m_deadbandvalue = 0.5;
 
   
+    public final class AutonomousValues{
+
+      public final class AutoTimes{
+        public static final double m_autonomousTimeOneSeconds = 1;
+        public static final double m_autonomousTimeTwoSeconds = 2;
+        public static final double m_autonomousTimeThreeSeconds = 3;
+        public static final double m_autonomousTimeFiveSeconds = 5;
+      }
+
+      public final class MotorSpeeds{
+
+        public final class DriveMotors{
+          public static final double m_xAutoZero = 0;
+          public static final double m_yAutoZero = 0;
+          public static final double m_yAutoback = -0.6;
+          public static final double m_yAutoPos = 0.6;
+          public static final double m_zAutoZero = 0;
+          public static final double m_zAutoZero2 = 0;
+
+        }
+
+
+      }
+
+
+    }
 }

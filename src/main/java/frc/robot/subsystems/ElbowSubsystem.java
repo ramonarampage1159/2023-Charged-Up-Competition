@@ -22,7 +22,7 @@ public class ElbowSubsystem extends SubsystemBase {
   private CANSparkMax elbowRight = new CANSparkMax(Constants.ElbowMotors.m_elbowRight, MotorType.kBrushless);
 
   private SparkMaxPIDController m_elbowLeftPidController;
-  private SparkMaxPIDController m_elbowRightPidController;
+  //private SparkMaxPIDController m_elbowRightPidController;
 
   //private RelativeEncoder m_elbowLeftEncoder;
   //private RelativeEncoder m_elbowRightEncoder;
@@ -37,11 +37,11 @@ public class ElbowSubsystem extends SubsystemBase {
     //elbowRight.follow(elbowLeft);
 
     System.out.println("ElbowSubsystem Initiated");
-    elbowRight.setInverted(true);
-    elbowLeft.setInverted(false);
+
+    elbowRight.follow(elbowLeft);
 
     m_elbowLeftPidController = elbowLeft.getPIDController();
-    m_elbowRightPidController = elbowRight.getPIDController();
+    //m_elbowRightPidController = elbowRight.getPIDController();
     //m_elbowLeftEncoder = elbowLeft.getEncoder();
     //m_elbowRightEncoder = elbowRight.getEncoder();
     
@@ -84,7 +84,7 @@ public class ElbowSubsystem extends SubsystemBase {
   public void setElbowReference(double speed, CANSparkMax.ControlType type) {
 
     m_elbowLeftPidController.setReference(speed, type);
-    m_elbowRightPidController.setReference(speed, type);
+    //m_elbowRightPidController.setReference(speed, type);
 
   }
  
@@ -99,13 +99,14 @@ public class ElbowSubsystem extends SubsystemBase {
     m_elbowLeftPidController.setFF(kFF);
     m_elbowLeftPidController.setOutputRange(kMinOutput, kMaxOutput);
  
+    /* 
     m_elbowRightPidController.setP(kP);
     m_elbowRightPidController.setI(kI);
     m_elbowRightPidController.setD(kD);
     m_elbowRightPidController.setIZone(kIz);
     m_elbowRightPidController.setFF(kFF);
     m_elbowRightPidController.setOutputRange(kMinOutput, kMaxOutput);
-
+    */
   }
   
 }

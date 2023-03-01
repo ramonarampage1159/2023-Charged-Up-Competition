@@ -4,29 +4,21 @@
 
 package frc.robot.commands.Auto.AutonSequences;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import frc.robot.Constants;
+import frc.robot.commands.Auto.AutonDrive;
 
-public class AutonomousSequenceOne extends CommandBase {
+public class AutonomousSequenceOne extends SequentialCommandGroup {
   /** Creates a new AutonomousSequenceOne. */
   public AutonomousSequenceOne() {
-    // Use addRequirements() here to declare subsystem dependencies.
-  }
+    // Drive Backwards out of community 
+    addCommands(
+      new AutonDrive(Constants.AutonomousValues.AutoTimes.m_autonomousTimeTwoSeconds,
+      Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_xAutoZero,
+     Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_yAutoback, Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_zAutoZero)
+    );
+  }    
+   
 
-  // Called when the command is initially scheduled.
-  @Override
-  public void initialize() {}
 
-  // Called every time the scheduler runs while the command is scheduled.
-  @Override
-  public void execute() {}
-
-  // Called once the command ends or is interrupted.
-  @Override
-  public void end(boolean interrupted) {}
-
-  // Returns true when the command should end.
-  @Override
-  public boolean isFinished() {
-    return false;
-  }
 }

@@ -5,6 +5,7 @@
 package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
+//import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
@@ -25,9 +26,21 @@ public class DriveTrainSubsystem extends SubsystemBase {
    rearRight.setInverted(true);
    frontRight.setInverted(true);
 
-   
-   
-   
+    
+   //frontLeft.restoreFactoryDefaults();
+   //frontRight.restoreFactoryDefaults();
+   //rearLeft.restoreFactoryDefaults();
+   //rearRight.restoreFactoryDefaults();
+
+   //frontLeft.setIdleMode(IdleMode.kBrake);
+   //frontRight.setIdleMode(IdleMode.kBrake);
+   //rearLeft.setIdleMode(IdleMode.kBrake);
+   //rearRight.setIdleMode(IdleMode.kBrake);
+
+   //frontLeft.burnFlash();
+   //frontRight.burnFlash();
+   //rearLeft.burnFlash();
+   //rearRight.burnFlash();   
    
   }
 

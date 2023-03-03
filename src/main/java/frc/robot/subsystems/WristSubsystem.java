@@ -26,6 +26,7 @@ public class WristSubsystem extends SubsystemBase {
 
     m_wristPidController = wristMotor.getPIDController();
 
+
     kP = Constants.ElbowPIDCoefficients.m_ElbowkP; 
     kI = Constants.ElbowPIDCoefficients.m_ElbowkI;
     kD = Constants.ElbowPIDCoefficients.m_ElbowkD; 
@@ -45,6 +46,8 @@ public class WristSubsystem extends SubsystemBase {
     SmartDashboard.putNumber("Wrist Min Output", kMinOutput);
     SmartDashboard.putNumber("Wrist Set Rotations", 0);
 
+    double WristPValue = m_wristPidController.getP();
+    SmartDashboard.putNumber("Wrist P Value", WristPValue);
 
   }
 
@@ -73,6 +76,15 @@ public void setWristReference(double speed, CANSparkMax.ControlType type) {
     m_wristPidController.setIZone(kIz);
     m_wristPidController.setFF(kFF);
     m_wristPidController.setOutputRange(kMinOutput, kMaxOutput);
+ 
+  }
+
+  public void setAutoPIDValues(double kP){
+
+    System.out.println("setting PID Values");
+
+    m_wristPidController.setP(kP);
+   
  
   }
 }

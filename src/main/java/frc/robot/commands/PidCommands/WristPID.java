@@ -37,7 +37,7 @@ public class WristPID extends CommandBase {
     //double min = SmartDashboard.getNumber("Min Output", 0);
 
     if (Robot.m_robotContainer.operatorController.getRawButtonPressed(Constants.OperatorController.JoystickButtons.m_xButton)){
-      double rotations = SmartDashboard.getNumber("Set Wrist Rotations", 0);
+      double rotations = SmartDashboard.getNumber("Wrist Set Rotations", 0);
       Robot.m_wrist.setWristReference(rotations, CANSparkMax.ControlType.kPosition);
 
   

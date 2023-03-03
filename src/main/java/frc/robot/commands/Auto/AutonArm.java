@@ -4,12 +4,26 @@
 
 package frc.robot.commands.Auto;
 
+import com.revrobotics.CANSparkMax;
+
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Robot;
 
 public class AutonArm extends CommandBase {
   /** Creates a new AutonArm. */
-  public AutonArm() {
+
+  double m_pValue;
+  double m_rotations;
+
+  public AutonArm(double pValue, double rotations) {
     // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(Robot.m_wrist);
+
+    m_pValue = pValue;
+    m_rotations = rotations;
+
+
+
   }
 
   // Called when the command is initially scheduled.
@@ -18,7 +32,14 @@ public class AutonArm extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+
+    Robot.m_wrist.setAutoPIDValues(m_pValue);
+    Robot.m_wrist.setWristReference(m_rotations, CANSparkMax.ControlType.kPosition);
+
+    System.out.println("still running");
+
+  }
 
   // Called once the command ends or is interrupted.
   @Override

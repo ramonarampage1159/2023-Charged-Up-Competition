@@ -39,8 +39,9 @@ public class ElbowPID extends CommandBase {
 
     
     if (Robot.m_robotContainer.operatorController.getRawButtonPressed(Constants.OperatorController.JoystickButtons.m_yButton)){
-      double rotations = SmartDashboard.getNumber("Set Elbow Rotations", 0);
+      double rotations = SmartDashboard.getNumber("Elbow Set Rotations", 0);
       Robot.m_elbow.setElbowReference(rotations, CANSparkMax.ControlType.kPosition);
+      
 
   
       System.out.println("rotations:"+ rotations);

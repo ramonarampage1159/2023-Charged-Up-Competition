@@ -66,7 +66,10 @@ public class ElbowSubsystem extends SubsystemBase {
     SmartDashboard.putNumber("Elbow Min Output", kMinOutput);
     SmartDashboard.putNumber("Elbow Set Rotations", 0);
  
-  
+    double ElbowPValue = m_elbowLeftPidController.getP();
+    SmartDashboard.putNumber("Elbow P Value", ElbowPValue);
+
+    
     
     
   }

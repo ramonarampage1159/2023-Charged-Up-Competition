@@ -8,8 +8,10 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
+//import frc.robot.commands.ElbowFunctions;
 import frc.robot.commands.MecanumDriver;
 import frc.robot.commands.PistonClampFunctions;
+//import frc.robot.commands.WristFunctions;
 import frc.robot.commands.PidCommands.ElbowPID;
 import frc.robot.commands.PidCommands.WristPID;
 
@@ -38,6 +40,8 @@ public class RobotContainer {
   private void configureButtonBindings() {
     Robot.m_driveTrain.setDefaultCommand(new MecanumDriver());
     Robot.m_pistonClamp.setDefaultCommand(new PistonClampFunctions());
+    //Robot.m_elbow.setDefaultCommand(new ElbowFunctions());
+    //Robot.m_wrist.setDefaultCommand(new WristFunctions());
     Robot.m_elbow.setDefaultCommand(new ElbowPID());
     Robot.m_wrist.setDefaultCommand(new WristPID());
 

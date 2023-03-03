@@ -2,17 +2,17 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.commands.Auto;
+package frc.robot.commands.PidCommands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 
-public class AutonClamp extends CommandBase {
-  /** Creates a new AutonClamp. */
-  
-  public AutonClamp() {
+public class ArmPID extends CommandBase {
+  /** Creates a new ArmPID. */
+  public ArmPID() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.m_pistonClamp);
+    addRequirements(Robot.m_elbow);
+    addRequirements(Robot.m_wrist);
   }
 
   // Called when the command is initially scheduled.
@@ -24,10 +24,7 @@ public class AutonClamp extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-
-    System.out.println("opened");
-    Robot.m_pistonClamp.solenoid30Open();
-
+    
   }
 
   // Called once the command ends or is interrupted.

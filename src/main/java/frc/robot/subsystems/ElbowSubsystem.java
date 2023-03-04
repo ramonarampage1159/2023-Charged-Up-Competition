@@ -29,6 +29,7 @@ public class ElbowSubsystem extends SubsystemBase {
 
 
   public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput;
+  public double rotations;
 
 
   MotorControllerGroup m_elbowMotors = new MotorControllerGroup(elbowLeft, elbowRight);
@@ -45,15 +46,15 @@ public class ElbowSubsystem extends SubsystemBase {
     //m_elbowLeftEncoder = elbowLeft.getEncoder();
     //m_elbowRightEncoder = elbowRight.getEncoder();
     
-    kP = Constants.ElbowPIDCoefficients.m_ElbowkP; 
-    kI = Constants.ElbowPIDCoefficients.m_ElbowkI;
-    kD = Constants.ElbowPIDCoefficients.m_ElbowkD; 
-    kIz = Constants.ElbowPIDCoefficients.m_ElbowkIz; 
-    kFF = Constants.ElbowPIDCoefficients.m_ElbowkFF; 
-    kMaxOutput = Constants.ElbowPIDCoefficients.m_ElbowkMaxOutput; 
-    kMinOutput = Constants.ElbowPIDCoefficients.m_ElbowkMinOutput;
+    kP = Constants.ZeroPIDCoefficients.m_ZerokP; 
+    kI = Constants.ZeroPIDCoefficients.m_ZerokI;
+    kD = Constants.ZeroPIDCoefficients.m_ZerokD; 
+    kIz = Constants.ZeroPIDCoefficients.m_ZerokIz; 
+    kFF = Constants.ZeroPIDCoefficients.m_ZerokFF; 
+    kMaxOutput = Constants.ZeroPIDCoefficients.m_ZerokMaxOutput; 
+    kMinOutput = Constants.ZeroPIDCoefficients.m_ZerokMinOutput;
 
-    setPIDValues(kP,kI,kD,kIz,kFF,kMinOutput,kMaxOutput);
+    setAllPIDValues(kP,kI,kD,kIz,kFF,kMinOutput,kMaxOutput);
 
   
 
@@ -86,12 +87,17 @@ public class ElbowSubsystem extends SubsystemBase {
 
   public void setElbowReference(double speed, CANSparkMax.ControlType type) {
 
+    this.rotations = speed;
     m_elbowLeftPidController.setReference(speed, type);
     //m_elbowRightPidController.setReference(speed, type);
 
   }
+
+  public boolean isAtSetpoint() {
+    return Math.abs(elbowLeft.getEncoder().getPosition() - rotations) <= 0.5;
+  }
  
-  public void setPIDValues(double kP, double kI, double kD, double kIz, double kFF, double kMinOutput, double kMaxOutput){
+  public void setAllPIDValues(double kP, double kI, double kD, double kIz, double kFF, double kMinOutput, double kMaxOutput){
 
     System.out.println("setting PID Values");
 
@@ -110,6 +116,12 @@ public class ElbowSubsystem extends SubsystemBase {
     m_elbowRightPidController.setFF(kFF);
     m_elbowRightPidController.setOutputRange(kMinOutput, kMaxOutput);
     */
+  }
+
+
+  public void setPIDValues(double kP, double kMinOutput, double kMaxOutput) {
+
+    m_elbowLeftPidController.setP(kP);
   }
   
 }

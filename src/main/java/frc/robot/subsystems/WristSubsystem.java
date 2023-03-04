@@ -21,21 +21,22 @@ public class WristSubsystem extends SubsystemBase {
   private  SparkMaxPIDController m_wristPidController;
 
   public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput;
+  public double rotations;
 
   public WristSubsystem() {
 
     m_wristPidController = wristMotor.getPIDController();
 
 
-    kP = Constants.ElbowPIDCoefficients.m_ElbowkP; 
-    kI = Constants.ElbowPIDCoefficients.m_ElbowkI;
-    kD = Constants.ElbowPIDCoefficients.m_ElbowkD; 
-    kIz = Constants.ElbowPIDCoefficients.m_ElbowkIz; 
-    kFF = Constants.ElbowPIDCoefficients.m_ElbowkFF; 
-    kMaxOutput = Constants.ElbowPIDCoefficients.m_ElbowkMaxOutput; 
-    kMinOutput = Constants.ElbowPIDCoefficients.m_ElbowkMinOutput;
+    kP = Constants.ZeroPIDCoefficients.m_ZerokP; 
+    kI = Constants.ZeroPIDCoefficients.m_ZerokI;
+    kD = Constants.ZeroPIDCoefficients.m_ZerokD; 
+    kIz = Constants.ZeroPIDCoefficients.m_ZerokIz; 
+    kFF = Constants.ZeroPIDCoefficients.m_ZerokFF; 
+    kMaxOutput = Constants.ZeroPIDCoefficients.m_ZerokMaxOutput; 
+    kMinOutput = Constants.ZeroPIDCoefficients.m_ZerokMinOutput;
 
-   setPIDValues(kP,kI,kD,kIz,kFF,kMinOutput,kMaxOutput);
+   setAllPIDValues(kP,kI,kD,kIz,kFF,kMinOutput,kMaxOutput);
 
     SmartDashboard.putNumber("Wrist P Gain", kP);
     SmartDashboard.putNumber("Wrist I Gain", kI);
@@ -62,11 +63,26 @@ public void setMotorSpeed(double opRightStickY) {
 
 public void setWristReference(double speed, CANSparkMax.ControlType type) {
 
+    this.rotations = speed;
     m_wristPidController.setReference(speed, type);
 
   }
 
-   public void setPIDValues(double kP, double kI, double kD, double kIz, double kFF, double kMinOutput, double kMaxOutput){
+  public boolean isAtSetpoint() {
+    return Math.abs(wristMotor.getEncoder().getPosition() - rotations) <= 0.5;
+  }
+
+  public void setPIDValues(double kP, double kMinOutput, double kMaxOutput){
+
+    System.out.println("setting PID Values");
+
+    m_wristPidController.setP(kP);
+   
+ 
+  }
+
+ 
+   public void setAllPIDValues(double kP, double kI, double kD, double kIz, double kFF, double kMinOutput, double kMaxOutput){
 
     System.out.println("setting PID Values");
 

@@ -7,8 +7,8 @@ package frc.robot.commands.Auto.AutonSequences;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 //import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.Constants;
-import frc.robot.commands.Auto.AutonArm;
-import frc.robot.commands.Auto.AutonClamp;
+//import frc.robot.commands.Auto.AutonArm;
+//import frc.robot.commands.Auto.AutonClamp;
 import frc.robot.commands.Auto.AutonDrive;
 
 public class AutonomousSequenceOne extends SequentialCommandGroup {
@@ -16,18 +16,6 @@ public class AutonomousSequenceOne extends SequentialCommandGroup {
   public AutonomousSequenceOne() {  
     // Drive Backwards out of community 
     addCommands(
-      new AutonArm(Constants.AutonomousValues.AutoPIDValues.m_wristPvalueFloor, Constants.AutonomousValues.AutoPIDValues.m_wristRotationsFloor), 
-
-      //new WaitCommand(0.5),
-
-     //new AutonClamp(),
-
-      //new WaitCommand(0.5),
-
-      new AutonArm(Constants.AutonomousValues.AutoPIDValues.m_wristPValueClose, Constants.AutonomousValues.AutoPIDValues.m_wristRotationsClose),
-
-      //new WaitCommand(0.5),
-     
       new AutonDrive(Constants.AutonomousValues.AutoTimes.m_autonomousTimeOneSeconds,
       Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_yAutoback,
      Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_xAutoZero, Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_zAutoZero)

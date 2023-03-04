@@ -79,6 +79,11 @@ public class ElbowSubsystem extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    SmartDashboard.putNumber("elbow right",elbowRight.getEncoder().getPosition());
+    SmartDashboard.putNumber("elbow left",elbowLeft.getEncoder().getPosition());
+    SmartDashboard.putNumber("elbow lrft current",elbowLeft.getOutputCurrent());
+    SmartDashboard.putBoolean("elbow at setpoint",isAtSetpoint());
+
   }
 
   public void setMotorSpeed(double opLeftStickY) {

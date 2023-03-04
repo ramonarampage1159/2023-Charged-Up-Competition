@@ -55,6 +55,10 @@ public class WristSubsystem extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    SmartDashboard.putNumber("wrist",wristMotor.getEncoder().getPosition());
+    SmartDashboard.putNumber("writst current",wristMotor.getOutputCurrent());
+
+
   }
 
 public void setMotorSpeed(double opRightStickY) {
@@ -68,10 +72,7 @@ public void setWristReference(double speed, CANSparkMax.ControlType type) {
 
   }
 
-  public boolean isAtSetpoint() {
-    return Math.abs(wristMotor.getEncoder().getPosition() - rotations) <= 0.5;
-  }
-
+  
   public void setPIDValues(double kP, double kMinOutput, double kMaxOutput){
 
     System.out.println("setting PID Values");

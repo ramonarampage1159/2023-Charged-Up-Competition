@@ -42,7 +42,7 @@ public class RobotContainer {
     //Robot.m_elbow.setDefaultCommand(new ElbowFunctions());
     //Robot.m_wrist.setDefaultCommand(new WristFunctions());
     Robot.m_elbow.setDefaultCommand(new ArmPID());
-    Robot.m_wrist.setDefaultCommand(new ArmPID());
+    //Robot.m_wrist.setDefaultCommand(new ArmPID());
 
     //Commands.sequence()
 

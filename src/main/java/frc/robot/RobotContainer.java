@@ -47,11 +47,14 @@ public class RobotContainer {
     //Commands.sequence()
 
    
-    m_chooser.setDefaultOption("Auto Sequence 1", new frc.robot.commands.Auto.AutonSequences.AutonomousSequenceOne());
-    m_chooser.addOption("Auto Sequence 2", new frc.robot.commands.Auto.AutonSequences.AutonomousSequenceTwo());
-    SmartDashboard.putData(m_chooser);
-  }
+   // m_chooser.setDefaultOption("Auto Sequence 1", new frc.robot.commands.Auto.AutonSequences.AutonomousSequenceOne());
+    
 
+    
+    SmartDashboard.putData(m_chooser);
+  
+  }
+  
   public RobotContainer() {
    
     // Configure the button bindings

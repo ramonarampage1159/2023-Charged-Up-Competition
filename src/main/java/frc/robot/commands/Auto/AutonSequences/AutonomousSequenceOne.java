@@ -3,19 +3,19 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.commands.Auto.AutonSequences;
-
+/* 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 //import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.Constants;
-//import frc.robot.commands.Auto.AutonArm;
-//import frc.robot.commands.Auto.AutonClamp;
+
 import frc.robot.commands.Auto.AutonDrive;
 
 public class AutonomousSequenceOne extends SequentialCommandGroup {
-  /** Creates a new AutonomousSequenceOne. */
+  Creates a new AutonomousSequenceOne. 
   public AutonomousSequenceOne() {  
     // Drive Backwards out of community 
     addCommands(
+
       new AutonDrive(Constants.AutonomousValues.AutoTimes.m_autonomousTimeOneSeconds,
       Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_yAutoback,
      Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_xAutoZero, Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_zAutoZero)
@@ -26,3 +26,4 @@ public class AutonomousSequenceOne extends SequentialCommandGroup {
   
 
 }
+*/

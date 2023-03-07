@@ -38,7 +38,7 @@ public final class Constants {
 
    public final class Autonomous{
     
-    public static final double m_autonomousTime = 40;
+    public static final double m_autonomousTime = 15;
 }
     
   public final class ZeroPIDCoefficients{
@@ -47,8 +47,8 @@ public final class Constants {
     public static final double m_ZerokD = 0; 
     public static final double m_ZerokIz = 0; 
     public static final double m_ZerokFF = 0; 
-    public static final double m_ZerokMaxOutput = 0.3000000596046448; 
-    public static final double m_ZerokMinOutput = -0.3099999964237213;
+    public static final double m_ZerokMaxOutput = 0.2500000596046448; 
+    public static final double m_ZerokMinOutput = -0.2599999964237213;
     
 
 
@@ -65,7 +65,7 @@ public final class Constants {
     public static final double m_MidNodeElbowP = 0.1;
     public static final double m_MidNodeElbowRotations = 8;
     public static final double m_MidNodeWristP = 0.5;
-    public static final double m_MidNodeWristRotations = 23;
+    public static final double m_MidNodeWristRotations = 27;
   }
 
   public final class HighShelfPIDCoefficients{
@@ -86,7 +86,7 @@ public final class Constants {
     public static final double m_FloorPickupElbowP = 0.5;
     public static final double m_FloorPickupElbowRotations = 0;
     public static final double m_FloorPickupWristP = 0.5;
-    public static final double m_FloorPickupWristRotations = 20;
+    public static final double m_FloorPickupWristRotations = 25;
   }
 
   public final class ClosedArmPID{
@@ -142,11 +142,7 @@ public final class Constants {
 
    }
 
-    public static final double m_autonomousXSpeed = .25;
-
-    public static final double m_autonomousYSpeed = .25;
-
-    public static final double m_autonomousZSpeed = .25;
+  
 
    
 
@@ -164,18 +160,18 @@ public final class Constants {
     public final class AutonomousValues{
 
       public final class AutoTimes{
-        public static final double m_autonomousTimeOneSeconds = 1;
+        public static final double m_autonomousTimeOneSeconds = 0.5;
         public static final double m_autonomousTimeTwoSeconds = 2;
         public static final double m_autonomousTimeThreeSeconds = 3;
         public static final double m_autonomousTimeFiveSeconds = 5;
       }
 
       public final class AutoPIDValues{
-        public static final double m_wristRotationsFloor = 22.0;
-        public static final double m_wristPvalueFloor = 50.0;
+        public static final double m_wristRotationsFloor = 25.0;
+        public static final double m_wristPvalueFloor = 0.3;
 
         public static final double m_wristRotationsClose = 0;
-        public static final double m_wristPValueClose = 50;
+        public static final double m_wristPValueClose = 0.3;
 
       }
 

@@ -75,7 +75,7 @@ public class ArmPID extends CommandBase {
 
       }
 
-      /* 
+      
       if(isFinishedStep){
       double wristPValue = Constants.MidPIDCoefficients.m_MidWristP;
       Robot.m_wrist.setPIDValues(wristPValue, Constants.ZeroPIDCoefficients.m_ZerokMinOutput, Constants.ZeroPIDCoefficients.m_ZerokMaxOutput);
@@ -84,7 +84,7 @@ public class ArmPID extends CommandBase {
       }
 
       isFinishedStep = false;
-      */
+      
 
 
     } else if(Robot.m_robotContainer.operatorController.getRawButtonPressed(Constants.OperatorController.JoystickButtons.m_bButton)){

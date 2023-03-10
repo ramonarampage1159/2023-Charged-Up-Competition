@@ -52,22 +52,22 @@ public final class Constants {
   }
 
   public final class HighPIDCoefficients{
-    public static final double m_HighElbowP = 0.05;
+    public static final double m_HighElbowP = 0.15;
     public static final double m_HighElbowRotations = 8.7;
-    public static final double m_HighWristP = 0.05;
+    public static final double m_HighWristP = 0.15;
     public static final double m_HighWristRotations = 4.5;
   }
 
   public final class MidPIDCoefficients{
-    public static final double m_MidElbowP = 0.05;
+    public static final double m_MidElbowP = 0.15;
     public static final double m_MidElbowRotations = 8;
-    public static final double m_MidWristP = 0.05;
+    public static final double m_MidWristP = 0.15;
     public static final double m_MidWristRotations = 3.5;
   }
 
   
   public final class FloorPickupPID{
-    public static final double m_FloorPickupElbowP = 0.1;
+    public static final double m_FloorPickupElbowP = 0.15;
     public static final double m_FloorPickupElbowRotations = 0;
     public static final double m_FloorPickupWristP = 0.15;
     public static final double m_FloorPickupWristRotations = 2.7;

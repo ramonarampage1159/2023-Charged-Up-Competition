@@ -43,7 +43,7 @@ public final class Constants {
     public static final double m_ZerokI = 0;
     public static final double m_ZerokD = 0; 
     public static final double m_ZerokIz = 0; 
-    public static final double m_ZerokFF = 0; 
+    public static final double m_ZerokFF = 0.01; 
     public static final double m_ZerokMaxOutput = 0.1500000596046448; 
     public static final double m_ZerokMinOutput = -0.159999964237213;
     
@@ -53,16 +53,16 @@ public final class Constants {
 
   public final class HighPIDCoefficients{
     public static final double m_HighElbowP = 0.15;
-    public static final double m_HighElbowRotations = 8.7;
+    public static final double m_HighElbowRotations = 9 ;
     public static final double m_HighWristP = 0.15;
-    public static final double m_HighWristRotations = 4.5;
+    public static final double m_HighWristRotations = 3.7;
   }
 
   public final class MidPIDCoefficients{
     public static final double m_MidElbowP = 0.15;
-    public static final double m_MidElbowRotations = 8;
+    public static final double m_MidElbowRotations = 4.7;
     public static final double m_MidWristP = 0.15;
-    public static final double m_MidWristRotations = 3.5;
+    public static final double m_MidWristRotations = 2.1;
   }
 
   
@@ -85,7 +85,7 @@ public final class Constants {
     public static final double m_MidWayElbowP = 0.1;
     public static final double m_MidWayElbowRotations = 3;
     public static final double m_MidWayWristP = 0.1; 
-    public static final double m_MidWayWristRotations = 2.1;
+    public static final double m_MidWayWristRotations = 0;
   }
 
    public final class DriverController{

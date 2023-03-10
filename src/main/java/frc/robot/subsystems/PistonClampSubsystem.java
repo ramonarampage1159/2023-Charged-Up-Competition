@@ -4,7 +4,6 @@
 
 package frc.robot.subsystems;
 
-//import edu.wpi.first.wpilibj.Compressor; lc
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -16,7 +15,6 @@ public class PistonClampSubsystem extends SubsystemBase {
     DoubleSolenoid m_solenoid30 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM,Constants.Pneumatics.kSolenoid30ForwardChannel,Constants.Pneumatics.kSolenoid30ReverseChannel);
     DoubleSolenoid m_solenoid60 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, Constants.Pneumatics.kSolenoid60ForwardChannel,Constants.Pneumatics.kSolenoid60ReverseChannel);
 
-    //Compressor compressor = new Compressor(null); lc
 
   public void solenoid30Open() {
     m_solenoid30.set(DoubleSolenoid.Value.kForward);

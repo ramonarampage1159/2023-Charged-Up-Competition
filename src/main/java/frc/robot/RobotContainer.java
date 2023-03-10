@@ -12,8 +12,6 @@ import frc.robot.commands.MecanumDriver;
 import frc.robot.commands.PistonClampFunctions;
 import frc.robot.commands.PidCommands.ArmPID;
 
-//import frc.robot.commands.ElbowFunctions;
-//import frc.robot.commands.WristFunctions;
 
 public class RobotContainer {
   private final SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -39,16 +37,15 @@ public class RobotContainer {
   private void configureButtonBindings() {
     Robot.m_driveTrain.setDefaultCommand(new MecanumDriver());
     Robot.m_pistonClamp.setDefaultCommand(new PistonClampFunctions());
-    //Robot.m_elbow.setDefaultCommand(new ElbowFunctions());
-    //Robot.m_wrist.setDefaultCommand(new WristFunctions());
     Robot.m_elbow.setDefaultCommand(new ArmPID());
-    //Robot.m_wrist.setDefaultCommand(new ArmPID());
+   
 
-    //Commands.sequence()
+    
 
    
-   // m_chooser.setDefaultOption("Auto Sequence 1", new frc.robot.commands.Auto.AutonSequences.AutonomousSequenceOne());
-    
+   m_chooser.setDefaultOption("no auto", null);
+   m_chooser.addOption("Auto Sequence 1",  new frc.robot.commands.Auto.AutonSequences.AutonomousSequenceOne());
+   m_chooser.addOption("Auto Sequence 2", getAutonomousCommand());
 
     
     SmartDashboard.putData(m_chooser);

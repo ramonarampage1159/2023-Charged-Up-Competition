@@ -23,7 +23,9 @@ public final class Constants {
     }
    
     public final class WristMotors{
-      public static final int m_wristMotor = 5;
+      public static final int m_wristUpper = 5;
+      public static final int m_wristLower = 8;
+
     }
 
 
@@ -35,11 +37,6 @@ public final class Constants {
     public static final int kSolenoid60ReverseChannel = 3;
   }
    
-
-   public final class Autonomous{
-    
-    public static final double m_autonomousTime = 15;
-}
     
   public final class ZeroPIDCoefficients{
     public static final double m_ZerokP = 0; 
@@ -47,46 +44,33 @@ public final class Constants {
     public static final double m_ZerokD = 0; 
     public static final double m_ZerokIz = 0; 
     public static final double m_ZerokFF = 0; 
-    public static final double m_ZerokMaxOutput = 0.2500000596046448; 
-    public static final double m_ZerokMinOutput = -0.2599999964237213;
+    public static final double m_ZerokMaxOutput = 0.1500000596046448; 
+    public static final double m_ZerokMinOutput = -0.159999964237213;
     
 
 
   }
 
-  public final class HighNodePIDCoefficients{
-    public static final double m_HighNodeElbowP = 0.1;
-    public static final double m_HighNodeElbowRotations = 11;
-    public static final double m_HighNodeWristP = 0.5;
-    public static final double m_HighNodeWristRotations = 35;
+  public final class HighPIDCoefficients{
+    public static final double m_HighElbowP = 0.05;
+    public static final double m_HighElbowRotations = 8.7;
+    public static final double m_HighWristP = 0.05;
+    public static final double m_HighWristRotations = 4.5;
   }
 
-  public final class MidNodePIDCoefficients{
-    public static final double m_MidNodeElbowP = 0.1;
-    public static final double m_MidNodeElbowRotations = 8;
-    public static final double m_MidNodeWristP = 0.5;
-    public static final double m_MidNodeWristRotations = 27;
+  public final class MidPIDCoefficients{
+    public static final double m_MidElbowP = 0.05;
+    public static final double m_MidElbowRotations = 8;
+    public static final double m_MidWristP = 0.05;
+    public static final double m_MidWristRotations = 3.5;
   }
 
-  public final class HighShelfPIDCoefficients{
-    public static final double m_HighShelfElbowP = 2;
-    public static final double m_HighShelfElbowRotations = 10;
-    public static final double m_HighShelfWristP = 0.5;
-    public static final double m_HighShelfWristRotations = 30;
-  }
-
-  public final class MidShelfPIDCoefficients{
-    public static final double m_MidShelfElbowP = 0.5;
-    public static final double m_MidShelfElbowRotations = 5;
-    public static final double m_MidShelfWristP = 0.5;
-    public static final double m_MidShelfWristRotations = 15;
-  }
-
+  
   public final class FloorPickupPID{
-    public static final double m_FloorPickupElbowP = 0.5;
+    public static final double m_FloorPickupElbowP = 0.1;
     public static final double m_FloorPickupElbowRotations = 0;
-    public static final double m_FloorPickupWristP = 0.5;
-    public static final double m_FloorPickupWristRotations = 25;
+    public static final double m_FloorPickupWristP = 0.15;
+    public static final double m_FloorPickupWristRotations = 2.7;
   }
 
   public final class ClosedArmPID{
@@ -97,6 +81,13 @@ public final class Constants {
   }
 
    
+  public final class MidWayPoint{
+    public static final double m_MidWayElbowP = 0.1;
+    public static final double m_MidWayElbowRotations = 3;
+    public static final double m_MidWayWristP = 0.1; 
+    public static final double m_MidWayWristRotations = 2.1;
+  }
+
    public final class DriverController{
 
     public static final int m_driverController = 0;

@@ -43,9 +43,9 @@ public class ArmPID extends CommandBase {
     if (Robot.m_robotContainer.operatorController.getRawButtonPressed(Constants.OperatorController.JoystickButtons.m_yButton)){
 
       if(!isFinishedStep) {
-        double elbowPValue = Constants.HighNodePIDCoefficients.m_HighNodeElbowP;
+        double elbowPValue = Constants.HighPIDCoefficients.m_HighElbowP;
         Robot.m_elbow.setPIDValues(elbowPValue, Constants.ZeroPIDCoefficients.m_ZerokMinOutput, Constants.ZeroPIDCoefficients.m_ZerokMaxOutput);
-        double elbowRotations = Constants.HighNodePIDCoefficients.m_HighNodeElbowRotations;
+        double elbowRotations = Constants.HighPIDCoefficients.m_HighElbowRotations;
         Robot.m_elbow.setElbowReference(elbowRotations, CANSparkMax.ControlType.kPosition);
        // if(Robot.m_elbow.isAtSetpoint()) 
         isFinishedStep =true;
@@ -54,9 +54,9 @@ public class ArmPID extends CommandBase {
       
 
       if(isFinishedStep) {
-        double wristPValue = Constants.HighNodePIDCoefficients.m_HighNodeWristP;
+        double wristPValue = Constants.HighPIDCoefficients.m_HighWristP;
         Robot.m_wrist.setPIDValues(wristPValue, Constants.ZeroPIDCoefficients.m_ZerokMinOutput, Constants.ZeroPIDCoefficients.m_ZerokMaxOutput);
-        double wristRotations = Constants.HighNodePIDCoefficients.m_HighNodeWristRotations;
+        double wristRotations = Constants.HighPIDCoefficients.m_HighWristRotations;
         Robot.m_wrist.setWristReference(wristRotations, CANSparkMax.ControlType.kPosition);
       }
       isFinishedStep = false;
@@ -66,72 +66,28 @@ public class ArmPID extends CommandBase {
     } else if(Robot.m_robotContainer.operatorController.getRawButtonPressed(Constants.OperatorController.JoystickButtons.m_aButton)){
       
       if(!isFinishedStep){
-      double elbowPValue = Constants.MidNodePIDCoefficients.m_MidNodeElbowP;
+      double elbowPValue = Constants.MidPIDCoefficients.m_MidElbowP;
       Robot.m_elbow.setPIDValues(elbowPValue, Constants.ZeroPIDCoefficients.m_ZerokMinOutput, Constants.ZeroPIDCoefficients.m_ZerokMaxOutput);
-      double elbowRotations = Constants.MidNodePIDCoefficients.m_MidNodeElbowRotations;
+      double elbowRotations = Constants.MidPIDCoefficients.m_MidElbowRotations;
       Robot.m_elbow.setElbowReference(elbowRotations, CANSparkMax.ControlType.kPosition);
      // if(Robot.m_elbow.isAtSetpoint()) 
       isFinishedStep =true;
 
       }
 
-
+      /* 
       if(isFinishedStep){
-      double wristPValue = Constants.MidNodePIDCoefficients.m_MidNodeWristP;
+      double wristPValue = Constants.MidPIDCoefficients.m_MidWristP;
       Robot.m_wrist.setPIDValues(wristPValue, Constants.ZeroPIDCoefficients.m_ZerokMinOutput, Constants.ZeroPIDCoefficients.m_ZerokMaxOutput);
-      double wristRotations = Constants.MidNodePIDCoefficients.m_MidNodeWristRotations;
+      double wristRotations = Constants.MidPIDCoefficients.m_MidWristRotations;
       Robot.m_wrist.setWristReference(wristRotations, CANSparkMax.ControlType.kPosition);
       }
 
       isFinishedStep = false;
-
-
-
-    } else if(Robot.m_robotContainer.operatorController.getRawButtonPressed(Constants.OperatorController.JoystickButtons.m_xButton)){
-
-      if(!isFinishedStep){
-      double elbowPValue = Constants.HighShelfPIDCoefficients.m_HighShelfElbowP;
-      Robot.m_elbow.setPIDValues(elbowPValue, Constants.ZeroPIDCoefficients.m_ZerokMinOutput, Constants.ZeroPIDCoefficients.m_ZerokMaxOutput);
-      double elbowRotations = Constants.HighShelfPIDCoefficients.m_HighShelfElbowRotations;
-      Robot.m_elbow.setElbowReference(elbowRotations, CANSparkMax.ControlType.kPosition);
-     // if(Robot.m_elbow.isAtSetpoint()) 
-      isFinishedStep =true;
-
-      }
-
-      if(isFinishedStep){
-      double wristPValue = Constants.HighShelfPIDCoefficients.m_HighShelfWristP;
-      Robot.m_wrist.setPIDValues(wristPValue, Constants.ZeroPIDCoefficients.m_ZerokMinOutput, Constants.ZeroPIDCoefficients.m_ZerokMaxOutput);
-      double wristRotations = Constants.HighShelfPIDCoefficients.m_HighShelfWristRotations;
-      Robot.m_wrist.setWristReference(wristRotations, CANSparkMax.ControlType.kPosition);
-      }
-
-      isFinishedStep = false;
+      */
 
 
     } else if(Robot.m_robotContainer.operatorController.getRawButtonPressed(Constants.OperatorController.JoystickButtons.m_bButton)){
-      
-      if(!isFinishedStep){
-      double elbowPValue = Constants.MidShelfPIDCoefficients.m_MidShelfElbowP;
-      Robot.m_elbow.setPIDValues(elbowPValue, Constants.ZeroPIDCoefficients.m_ZerokMinOutput, Constants.ZeroPIDCoefficients.m_ZerokMaxOutput);
-      double elbowRotations = Constants.MidShelfPIDCoefficients.m_MidShelfElbowRotations;
-      Robot.m_elbow.setElbowReference(elbowRotations, CANSparkMax.ControlType.kPosition);
-      //if(Robot.m_elbow.isAtSetpoint()) 
-      isFinishedStep =true;
-
-      }
-      
-      if(isFinishedStep){
-      double wristPValue = Constants.MidShelfPIDCoefficients.m_MidShelfWristP;
-      Robot.m_wrist.setPIDValues(wristPValue, Constants.ZeroPIDCoefficients.m_ZerokMinOutput, Constants.ZeroPIDCoefficients.m_ZerokMaxOutput);
-      double wristRotations = Constants.MidShelfPIDCoefficients.m_MidShelfWristRotations;
-      Robot.m_wrist.setWristReference(wristRotations, CANSparkMax.ControlType.kPosition);
-      }
-
-      isFinishedStep = false;
-
-
-    } else if(Robot.m_robotContainer.operatorController.getRawButtonPressed(Constants.OperatorController.JoystickButtons.m_backButton)){
 
       if(!isFinishedStep){
       double elbowPValue = Constants.FloorPickupPID.m_FloorPickupElbowP;
@@ -153,7 +109,7 @@ public class ArmPID extends CommandBase {
       isFinishedStep = false;
 
 
-    } else if(Robot.m_robotContainer.operatorController.getRawButtonPressed(Constants.OperatorController.JoystickButtons.m_startButton)){
+    } else if(Robot.m_robotContainer.operatorController.getRawButtonPressed(Constants.OperatorController.JoystickButtons.m_xButton)){
 
       if(!isFinishedStep){
         double wristPValue = Constants.ClosedArmPID.m_closedWristP;
@@ -174,7 +130,25 @@ public class ArmPID extends CommandBase {
       }
 
       isFinishedStep = false;
-    }
+    } else if (Robot.m_robotContainer.operatorController.getRawButtonPressed(Constants.OperatorController.JoystickButtons.m_startButton)){
+      if(!isFinishedStep){
+        double elbowPValue = Constants.MidWayPoint.m_MidWayElbowP;
+        Robot.m_elbow.setPIDValues(elbowPValue, Constants.ZeroPIDCoefficients.m_ZerokMinOutput, Constants.ZeroPIDCoefficients.m_ZerokMaxOutput);
+        double elbowRotations = Constants.MidWayPoint.m_MidWayElbowRotations;
+        Robot.m_elbow.setElbowReference(elbowRotations, CANSparkMax.ControlType.kPosition);
+
+        isFinishedStep = true;
+      }
+
+      if(isFinishedStep){
+        double wristPValue = Constants.MidWayPoint.m_MidWayWristP;
+      Robot.m_wrist.setPIDValues(wristPValue, Constants.ZeroPIDCoefficients.m_ZerokMinOutput, Constants.ZeroPIDCoefficients.m_ZerokMaxOutput);
+      double wristRotations = Constants.MidWayPoint.m_MidWayWristRotations;
+      Robot.m_wrist.setWristReference(wristRotations, CANSparkMax.ControlType.kPosition);
+
+      isFinishedStep = true;
+      }
+    } 
 
   }
 

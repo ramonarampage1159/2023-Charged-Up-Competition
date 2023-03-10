@@ -8,6 +8,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.SparkMaxPIDController;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -16,16 +17,23 @@ import frc.robot.Constants;
 public class WristSubsystem extends SubsystemBase {
   /** Creates a new WristSubsystem. */
 
-  private CANSparkMax wristMotor = new CANSparkMax(Constants.WristMotors.m_wristMotor, MotorType.kBrushless);
+  private CANSparkMax wristMotorTop = new CANSparkMax(Constants.WristMotors.m_wristUpper, MotorType.kBrushless);
+  private CANSparkMax wristMotorBottom = new CANSparkMax(Constants.WristMotors.m_wristLower, MotorType.kBrushless);
+  
 
   private  SparkMaxPIDController m_wristPidController;
+
 
   public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput;
   public double rotations;
 
+  MotorControllerGroup m_wristMotors = new MotorControllerGroup(wristMotorTop, wristMotorBottom); 
+
   public WristSubsystem() {
 
-    m_wristPidController = wristMotor.getPIDController();
+    wristMotorBottom.follow(wristMotorTop);
+    m_wristPidController = wristMotorTop.getPIDController();
+
 
 
     kP = Constants.ZeroPIDCoefficients.m_ZerokP; 
@@ -55,14 +63,17 @@ public class WristSubsystem extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    SmartDashboard.putNumber("wrist",wristMotor.getEncoder().getPosition());
-    SmartDashboard.putNumber("writst current",wristMotor.getOutputCurrent());
+    SmartDashboard.putNumber("wrist Top",wristMotorTop.getEncoder().getPosition());
+    SmartDashboard.putNumber("writst Top current",wristMotorTop.getOutputCurrent());
+
+    SmartDashboard.putNumber("wrist Bottom",wristMotorBottom.getEncoder().getPosition());
+    SmartDashboard.putNumber("writst Bottom current",wristMotorBottom.getOutputCurrent());
 
 
   }
 
 public void setMotorSpeed(double opRightStickY) {
-  wristMotor.set(opRightStickY);
+  wristMotorTop.set(opRightStickY);
 }
 
 public void setWristReference(double speed, CANSparkMax.ControlType type) {

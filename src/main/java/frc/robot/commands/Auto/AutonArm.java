@@ -37,7 +37,7 @@ public class AutonArm extends CommandBase {
     Robot.m_wrist.setAutoPIDValues(m_pValue);
     Robot.m_wrist.setWristReference(m_rotations, CANSparkMax.ControlType.kPosition);
 
-    System.out.println("still running");
+   
 
   }
 

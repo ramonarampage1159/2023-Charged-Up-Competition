@@ -10,10 +10,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.SparkMaxPIDController;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-//import com.revrobotics.RelativeEncoder;
 
 import frc.robot.Constants;
-//import frc.robot.Robot;
 
 public class ElbowSubsystem extends SubsystemBase {
   /** Creates a new ElbowSubsystem. */   
@@ -22,10 +20,7 @@ public class ElbowSubsystem extends SubsystemBase {
   private CANSparkMax elbowRight = new CANSparkMax(Constants.ElbowMotors.m_elbowRight, MotorType.kBrushless);
 
   private SparkMaxPIDController m_elbowLeftPidController;
-  //private SparkMaxPIDController m_elbowRightPidController;
-
-  //private RelativeEncoder m_elbowLeftEncoder;
-  //private RelativeEncoder m_elbowRightEncoder;
+ 
 
 
   public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput;
@@ -35,16 +30,12 @@ public class ElbowSubsystem extends SubsystemBase {
   MotorControllerGroup m_elbowMotors = new MotorControllerGroup(elbowLeft, elbowRight);
 
   public ElbowSubsystem() {    
-    //elbowRight.follow(elbowLeft);
 
-    System.out.println("ElbowSubsystem Initiated");
 
     elbowRight.follow(elbowLeft);
 
     m_elbowLeftPidController = elbowLeft.getPIDController();
-    //m_elbowRightPidController = elbowRight.getPIDController();
-    //m_elbowLeftEncoder = elbowLeft.getEncoder();
-    //m_elbowRightEncoder = elbowRight.getEncoder();
+    
     
     kP = Constants.ZeroPIDCoefficients.m_ZerokP; 
     kI = Constants.ZeroPIDCoefficients.m_ZerokI;
@@ -57,7 +48,7 @@ public class ElbowSubsystem extends SubsystemBase {
     setAllPIDValues(kP,kI,kD,kIz,kFF,kMinOutput,kMaxOutput);
 
   
-
+    
     SmartDashboard.putNumber("Elbow P Gain", kP);
     SmartDashboard.putNumber("Elbow I Gain", kI);
     SmartDashboard.putNumber("Elbow D Gain", kD);
@@ -82,7 +73,7 @@ public class ElbowSubsystem extends SubsystemBase {
     SmartDashboard.putNumber("elbow right",elbowRight.getEncoder().getPosition());
     SmartDashboard.putNumber("elbow left",elbowLeft.getEncoder().getPosition());
     SmartDashboard.putNumber("elbow lrft current",elbowLeft.getOutputCurrent());
-    SmartDashboard.putBoolean("elbow at setpoint",isAtSetpoint());
+    SmartDashboard.putBoolean("elbow at setpoint", isAtSetpoint());
 
   }
 
@@ -94,7 +85,6 @@ public class ElbowSubsystem extends SubsystemBase {
 
     this.rotations = speed;
     m_elbowLeftPidController.setReference(speed, type);
-    //m_elbowRightPidController.setReference(speed, type);
 
   }
 
@@ -104,7 +94,6 @@ public class ElbowSubsystem extends SubsystemBase {
  
   public void setAllPIDValues(double kP, double kI, double kD, double kIz, double kFF, double kMinOutput, double kMaxOutput){
 
-    System.out.println("setting PID Values");
 
     m_elbowLeftPidController.setP(kP);
     m_elbowLeftPidController.setI(kI);
@@ -113,14 +102,7 @@ public class ElbowSubsystem extends SubsystemBase {
     m_elbowLeftPidController.setFF(kFF);
     m_elbowLeftPidController.setOutputRange(kMinOutput, kMaxOutput);
  
-    /* 
-    m_elbowRightPidController.setP(kP);
-    m_elbowRightPidController.setI(kI);
-    m_elbowRightPidController.setD(kD);
-    m_elbowRightPidController.setIZone(kIz);
-    m_elbowRightPidController.setFF(kFF);
-    m_elbowRightPidController.setOutputRange(kMinOutput, kMaxOutput);
-    */
+   
   }
 
 

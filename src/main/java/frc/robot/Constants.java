@@ -43,7 +43,7 @@ public final class Constants {
     public static final double m_ZerokI = 0;
     public static final double m_ZerokD = 0; 
     public static final double m_ZerokIz = 0; 
-    public static final double m_ZerokFF = 0.01; 
+    public static final double m_ZerokFF = 0; 
     public static final double m_ZerokMaxOutput = 0.1500000596046448; 
     public static final double m_ZerokMinOutput = -0.159999964237213;
     
@@ -151,18 +151,19 @@ public final class Constants {
     public final class AutonomousValues{
 
       public final class AutoTimes{
-        public static final double m_autonomousTimeOneSeconds = 0.5;
+        public static final double m_autonomousTimeOneSeconds = 1;
         public static final double m_autonomousTimeTwoSeconds = 2;
-        public static final double m_autonomousTimeThreeSeconds = 3;
+        public static final double m_autonomousTimeThreeSeconds = 3.09;
+        public static final double m_autonomousTimeFourSeconds = 4;
         public static final double m_autonomousTimeFiveSeconds = 5;
       }
 
       public final class AutoPIDValues{
-        public static final double m_wristRotationsFloor = 25.0;
-        public static final double m_wristPvalueFloor = 0.3;
+        public static final double m_wristRotationsFloor = 2.7;
+        public static final double m_wristPValueFloor = 0.1;
 
         public static final double m_wristRotationsClose = 0;
-        public static final double m_wristPValueClose = 0.3;
+        public static final double m_wristPValueClose = 0.1;
 
       }
 
@@ -171,7 +172,7 @@ public final class Constants {
         public final class DriveMotors{
           public static final double m_xAutoZero = 0;
           public static final double m_yAutoZero = 0;
-          public static final double m_yAutoback = -0.5;
+          public static final double m_yAutoback = -0.35;
           public static final double m_yAutoPos = 0.4;
           public static final double m_zAutoZero = 0;
           public static final double m_zAutoZero2 = 0;

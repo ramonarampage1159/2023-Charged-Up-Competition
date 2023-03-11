@@ -25,7 +25,6 @@ public class AutonClamp extends CommandBase {
   @Override
   public void execute() {
 
-    System.out.println("opened");
     Robot.m_pistonClamp.solenoid30Open();
 
   }

@@ -24,19 +24,15 @@ public class PistonClampFunctions extends CommandBase {
   public void execute() {
 
     if (Robot.m_robotContainer.operatorController.getRawButtonPressed(Constants.OperatorController.JoystickButtons.m_leftBumper)){
-      System.out.println("left bumper running, button pressed");
       Robot.m_pistonClamp.solenoid30Open();
       Robot.m_pistonClamp.solenoid60Off();
     } else if (Robot.m_robotContainer.operatorController.getRawButtonPressed(Constants.OperatorController.JoystickButtons.m_leftTrigger)){
-      System.out.println("left trigger running, button pressed");
       Robot.m_pistonClamp.solenoid30Close();
       Robot.m_pistonClamp.solenoid60Off();
     } else if (Robot.m_robotContainer.operatorController.getRawButtonPressed(Constants.OperatorController.JoystickButtons.m_rightBumper)){
-       System.out.println("right bumper running, button pressed");
        Robot.m_pistonClamp.solenoid60Open();
        Robot.m_pistonClamp.solenoid30Off();
     } else if (Robot.m_robotContainer.operatorController.getRawButtonPressed(Constants.OperatorController.JoystickButtons.m_rightTrigger)){
-      System.out.println("right trigger running, button pressed");
       Robot.m_pistonClamp.solenoid60Close();
       Robot.m_pistonClamp.solenoid30Off();
     }

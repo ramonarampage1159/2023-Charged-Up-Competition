@@ -12,8 +12,8 @@ import frc.robot.Constants;
 public class PistonClampSubsystem extends SubsystemBase {
   /** Creates a new PistonClamp. */
     
-    DoubleSolenoid m_solenoid30 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM,Constants.Pneumatics.kSolenoid30ForwardChannel,Constants.Pneumatics.kSolenoid30ReverseChannel);
-    DoubleSolenoid m_solenoid60 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, Constants.Pneumatics.kSolenoid60ForwardChannel,Constants.Pneumatics.kSolenoid60ReverseChannel);
+    DoubleSolenoid m_solenoid30; //= new DoubleSolenoid(PneumaticsModuleType.CTREPCM,Constants.Pneumatics.kSolenoid30ForwardChannel,Constants.Pneumatics.kSolenoid30ReverseChannel);
+    DoubleSolenoid m_solenoid60; // = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, Constants.Pneumatics.kSolenoid60ForwardChannel,Constants.Pneumatics.kSolenoid60ReverseChannel);
 
 
   public void solenoid30Open() {
@@ -40,7 +40,11 @@ public class PistonClampSubsystem extends SubsystemBase {
     m_solenoid60.set(DoubleSolenoid.Value.kOff);
   }
 
-  public PistonClampSubsystem() {}
+  public PistonClampSubsystem() {
+   
+    m_solenoid30 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM,Constants.Pneumatics.kSolenoid30ForwardChannel,Constants.Pneumatics.kSolenoid30ReverseChannel);
+    m_solenoid60 = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, Constants.Pneumatics.kSolenoid60ForwardChannel,Constants.Pneumatics.kSolenoid60ReverseChannel);
+  }
   
   @Override
   public void periodic() {}

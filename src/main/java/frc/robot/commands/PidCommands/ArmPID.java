@@ -131,6 +131,7 @@ public class ArmPID extends CommandBase {
 
       isFinishedStep = false;
     } else if (Robot.m_robotContainer.operatorController.getRawButtonPressed(Constants.OperatorController.JoystickButtons.m_startButton)){
+      
       if(!isFinishedStep){
         double elbowPValue = Constants.MidWayPoint.m_MidWayElbowP;
         Robot.m_elbow.setPIDValues(elbowPValue, Constants.ZeroPIDCoefficients.m_ZerokMinOutput, Constants.ZeroPIDCoefficients.m_ZerokMaxOutput);

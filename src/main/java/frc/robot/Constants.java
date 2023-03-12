@@ -145,7 +145,7 @@ public final class Constants {
 
     public static final double m_wristLimiter = 0.3;
 
-    public static final double m_deadbandvalue = 0.5;
+    public static final double m_deadbandvalue = 0.05;
 
   
     public final class AutonomousValues{

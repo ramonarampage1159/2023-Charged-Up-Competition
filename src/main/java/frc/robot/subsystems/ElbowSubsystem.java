@@ -110,5 +110,11 @@ public class ElbowSubsystem extends SubsystemBase {
 
     m_elbowLeftPidController.setP(kP);
   }
+
+
+public void setAutoPIDValues(double m_pValue) {
+  
+  m_elbowLeftPidController.setP(kP);
+}
   
 }

@@ -23,14 +23,16 @@ public class MecanumDriver extends CommandBase {
   @Override
   public void execute() {
 
-    double leftStickX = -(Robot.m_robotContainer.GetDriverRawAxis(Constants.DriverController.Joystick.m_leftStickX));
-    double leftStickY = (Robot.m_robotContainer.GetDriverRawAxis(Constants.DriverController.Joystick.m_leftStickY));
-    double leftStickZ = (Robot.m_robotContainer.GetDriverRawAxis(Constants.DriverController.Joystick.m_rightStickX));
+    double leftStickX = MathUtil.applyDeadband(-(Robot.m_robotContainer.GetDriverRawAxis(Constants.DriverController.Joystick.m_leftStickX)), Constants.m_deadbandvalue);
+    double leftStickY = MathUtil.applyDeadband((Robot.m_robotContainer.GetDriverRawAxis(Constants.DriverController.Joystick.m_leftStickY)), Constants.m_deadbandvalue);
+    double leftStickZ = MathUtil.applyDeadband((Robot.m_robotContainer.GetDriverRawAxis(Constants.DriverController.Joystick.m_rightStickX)), Constants.m_deadbandvalue);
     
+    /* 
     MathUtil.applyDeadband(leftStickY, Constants.m_deadbandvalue);
     MathUtil.applyDeadband(-leftStickX, Constants.m_deadbandvalue);
     MathUtil.applyDeadband(leftStickZ, Constants.m_deadbandvalue);
-
+    */
+    
     Robot.m_driveTrain.setMotorSpeed(leftStickX, leftStickY, leftStickZ);
 
     

@@ -9,13 +9,13 @@ import com.revrobotics.CANSparkMax;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 
-public class AutonArm extends CommandBase {
+public class AutonWrist extends CommandBase {
   /** Creates a new AutonArm. */
 
   double m_pValue;
   double m_rotations;
 
-  public AutonArm(double pValue, double rotations) {
+  public AutonWrist(double pValue, double rotations) {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Robot.m_wrist);
 
@@ -48,6 +48,6 @@ public class AutonArm extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return true;
   }
 }

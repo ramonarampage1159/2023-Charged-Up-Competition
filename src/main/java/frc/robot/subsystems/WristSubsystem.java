@@ -67,7 +67,7 @@ public class WristSubsystem extends SubsystemBase {
     SmartDashboard.putNumber("writst Top current",wristMotorTop.getOutputCurrent());
 
     SmartDashboard.putNumber("wrist Bottom",wristMotorBottom.getEncoder().getPosition());
-    SmartDashboard.putNumber("writst Bottom current",wristMotorBottom.getOutputCurrent());
+    
 
 
   }
@@ -86,17 +86,12 @@ public void setWristReference(double speed, CANSparkMax.ControlType type) {
   
   public void setPIDValues(double kP, double kMinOutput, double kMaxOutput){
 
-    System.out.println("setting PID Values");
-
     m_wristPidController.setP(kP);
    
- 
   }
 
  
    public void setAllPIDValues(double kP, double kI, double kD, double kIz, double kFF, double kMinOutput, double kMaxOutput){
-
-    System.out.println("setting PID Values");
 
     m_wristPidController.setP(kP);
     m_wristPidController.setI(kI);
@@ -109,10 +104,7 @@ public void setWristReference(double speed, CANSparkMax.ControlType type) {
 
   public void setAutoPIDValues(double kP){
 
-    System.out.println("setting PID Values");
-
     m_wristPidController.setP(kP);
-   
  
   }
 }

@@ -5,9 +5,10 @@
 package frc.robot.commands.Auto.AutonSequences;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 //import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.Constants;
-import frc.robot.commands.Auto.AutonArm;
+import frc.robot.commands.Auto.AutonWrist;
 import frc.robot.commands.Auto.AutonDrive;
 
 public class AutonomousSequenceOne extends SequentialCommandGroup {
@@ -16,10 +17,13 @@ public class AutonomousSequenceOne extends SequentialCommandGroup {
     // Drive Backwards out of community 
     addCommands(
     new SequentialCommandGroup(
-      new AutonArm(Constants.AutonomousValues.AutoPIDValues.m_wristPValueFloor, Constants.AutonomousValues.AutoPIDValues.m_wristRotationsFloor),
+      new AutonWrist(Constants.AutonomousValues.AutoPIDValues.m_wristPValueFloor, Constants.AutonomousValues.AutoPIDValues.m_wristRotationsFloor),
 
-      new AutonArm(Constants.AutonomousValues.AutoPIDValues.m_wristPValueClose, Constants.AutonomousValues.AutoPIDValues.m_wristRotationsClose),
+      new WaitCommand(0.5),
 
+      new AutonWrist(Constants.AutonomousValues.AutoPIDValues.m_wristPValueClose, Constants.AutonomousValues.AutoPIDValues.m_wristRotationsClose),
+
+      new WaitCommand(0.5),
 
       new AutonDrive(Constants.AutonomousValues.AutoTimes.m_autonomousTimeFourSeconds,
       Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_yAutoback,
@@ -28,6 +32,4 @@ public class AutonomousSequenceOne extends SequentialCommandGroup {
     );
   }    
    
-  
-
 }

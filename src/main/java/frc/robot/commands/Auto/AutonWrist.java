@@ -36,7 +36,7 @@ public class AutonWrist extends CommandBase {
 
     Robot.m_wrist.setAutoPIDValues(m_pValue);
     Robot.m_wrist.setWristReference(m_rotations, CANSparkMax.ControlType.kPosition);
-
+    System.out.println("wrist execute");
    
 
   }
@@ -48,6 +48,7 @@ public class AutonWrist extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
+    System.out.println("wrist finished");
     return true;
   }
 }

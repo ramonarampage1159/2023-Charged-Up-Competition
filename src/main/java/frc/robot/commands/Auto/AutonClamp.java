@@ -26,6 +26,7 @@ public class AutonClamp extends CommandBase {
   public void execute() {
 
     Robot.m_pistonClamp.solenoid30Open();
+    System.out.println("clamp execute");
 
   }
 
@@ -36,6 +37,7 @@ public class AutonClamp extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
+    System.out.println("clamp finished");
     return true;
   }
 }

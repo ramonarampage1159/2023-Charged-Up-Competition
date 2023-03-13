@@ -20,9 +20,9 @@ public class AutonomousSequenceTwo extends SequentialCommandGroup {
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
       new SequentialCommandGroup(
-      new AutonElbow(0.15, 4.7),
-      new WaitCommand(0.2),
-      new AutonWrist(0.15, 2.1),
+     new AutonElbow(0.15, 5.5),
+     new WaitCommand(0.2),
+      new AutonWrist(0.15, 2.7),
       new WaitCommand(0.4),
       new AutonClamp(),
       new WaitCommand(0.2),
@@ -33,6 +33,8 @@ public class AutonomousSequenceTwo extends SequentialCommandGroup {
       new AutonDrive(Constants.AutonomousValues.AutoTimes.m_autonomousTimeFourSeconds,
       Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_yAutoback,
      Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_xAutoZero, Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_zAutoZero)
-     ));
+    
+     )
+     );
   }
 }

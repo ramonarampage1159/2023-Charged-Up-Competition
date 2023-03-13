@@ -37,7 +37,7 @@ public class AutonElbow extends CommandBase {
     Robot.m_elbow.setAutoPIDValues(m_pValue);
     Robot.m_elbow.setElbowReference(m_rotations, CANSparkMax.ControlType.kPosition);
 
-   
+   System.out.println("elbow execute");
 
   }
 
@@ -48,6 +48,7 @@ public class AutonElbow extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
+    System.out.println("elbow finished");
     return true;
   }
 }

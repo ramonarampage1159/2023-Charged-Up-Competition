@@ -32,7 +32,7 @@ public class WristSubsystem extends SubsystemBase {
   public WristSubsystem() {
 
     wristMotorBottom.follow(wristMotorTop);
-    m_wristPidController = wristMotorTop.getPIDController();
+    m_wristPidController =  wristMotorTop.getPIDController();
 
 
 
@@ -84,9 +84,10 @@ public void setWristReference(double speed, CANSparkMax.ControlType type) {
   }
 
   
-  public void setPIDValues(double kP, double kMinOutput, double kMaxOutput){
+  public void setPIDValues(double kP, double kI, double kD, double kMinOutput, double kMaxOutput){
 
     m_wristPidController.setP(kP);
+
    
   }
 
@@ -105,6 +106,11 @@ public void setWristReference(double speed, CANSparkMax.ControlType type) {
   public void setAutoPIDValues(double kP){
 
     m_wristPidController.setP(kP);
+    m_wristPidController.setI(0.0);
+    m_wristPidController.setD(0.0);
+    m_wristPidController.setIZone(0.0);
+    m_wristPidController.setFF(0.0);
+    m_wristPidController.setOutputRange(-0.15, 0.15);
  
   }
 }

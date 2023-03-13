@@ -106,7 +106,7 @@ public class ElbowSubsystem extends SubsystemBase {
   }
 
 
-  public void setPIDValues(double kP, double kMinOutput, double kMaxOutput) {
+  public void setPIDValues(double kP, double kI, double kD, double kMinOutput, double kMaxOutput) {
 
     m_elbowLeftPidController.setP(kP);
   }
@@ -115,6 +115,13 @@ public class ElbowSubsystem extends SubsystemBase {
 public void setAutoPIDValues(double m_pValue) {
   
   m_elbowLeftPidController.setP(kP);
+  m_elbowLeftPidController.setI(0.0);
+  m_elbowLeftPidController.setD(0.0);
+  m_elbowLeftPidController.setIZone(0.0);
+  m_elbowLeftPidController.setFF(0.0);
+  m_elbowLeftPidController.setOutputRange(-0.15, 0.15);
+
+
 }
   
 }

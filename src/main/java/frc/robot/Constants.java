@@ -53,24 +53,24 @@ public final class Constants {
 
   public final class HighPIDCoefficients{
     public static final double m_HighElbowP = 0.31;
-    public static final double m_HighElbowI = 0.002; 
-    public static final double m_HighElbowD = 0.025;
-    public static final double m_HighElbowRotations = 10 ;
+    public static final double m_HighElbowI = 0.00; 
+    public static final double m_HighElbowD = 0.0;
+    public static final double m_HighElbowRotations = 10.5 ;
     public static final double m_HighWristP = 0.37;
-    public static final double m_HighWristI = 0.002; 
-    public static final double m_HighWristD = 0.025;
-    public static final double m_HighWristRotations = 3;
+    public static final double m_HighWristI = 0.0; 
+    public static final double m_HighWristD = 0.0;
+    public static final double m_HighWristRotations = 3.6;
   }
 
   public final class MidPIDCoefficients{
     public static final double m_MidElbowP = 0.25;
-    public static final double m_MidElbowI = 0.0007; 
-    public static final double m_MidElbowD = 0.0008;
+    public static final double m_MidElbowI = 0.0; 
+    public static final double m_MidElbowD = 0.0;
     public static final double m_MidElbowRotations = 5.5;
     public static final double m_MidWristP = 0.35;
-    public static final double m_MidWristI = 0.0175; 
-    public static final double m_MidWristD = 0.015;
-    public static final double m_MidWristRotations = 2.5;
+    public static final double m_MidWristI = 0.0; 
+    public static final double m_MidWristD = 0.0;
+    public static final double m_MidWristRotations = 2.2;
   }
 
   
@@ -81,9 +81,9 @@ public final class Constants {
     public static final double m_FloorPickupElbowD = 0;
     public static final double m_FloorPickupElbowRotations = 0;  
 
-    public static final double m_FloorPickupWristP = 0.10;
+    public static final double m_FloorPickupWristP = 0.15;
     public static final double m_FloorPickupWristI = 0.0; 
-    public static final double m_FloorPickupWristD = 0.03;
+    public static final double m_FloorPickupWristD = 0.0;
     public static final double m_FloorPickupWristRotations = 2.7;
   }
 
@@ -91,12 +91,12 @@ public final class Constants {
 
     public static final double m_closedElbowP = 0.1;
     public static final double m_ClosedElbowI = 0; 
-    public static final double m_ClosedElbowD = 0.01;
+    public static final double m_ClosedElbowD = 0.0;
     public static final double m_closedElbowRotations = 0;
 
-    public static final double m_closedWristP = 0.05;
+    public static final double m_closedWristP = 0.15;
     public static final double m_ClosedWristI = 0; 
-    public static final double m_ClosedWristD = 0.025;
+    public static final double m_ClosedWristD = 0.0;
     public static final double m_closedWristRotations = 0;
   }
 
@@ -168,7 +168,7 @@ public final class Constants {
       public final class AutoTimes{
         public static final double m_autonomousTimeOneSeconds = 1;
         public static final double m_autonomousTimeTwoSeconds = 2;
-        public static final double m_autonomousTimeThreeSeconds = 3.09;
+        public static final double m_autonomousTimeThreeSeconds = 3.236;
         public static final double m_autonomousTimeFourSeconds = 4;
         public static final double m_autonomousTimeFiveSeconds = 5;
       }

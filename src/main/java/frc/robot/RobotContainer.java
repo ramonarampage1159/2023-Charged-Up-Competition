@@ -54,7 +54,7 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
 
-    m_chooser.setDefaultOption("no auto", null);
+      m_chooser.setDefaultOption("no auto", null);
    m_chooser.addOption("Auto Sequence 1",  new frc.robot.commands.Auto.AutonSequences.AutonomousSequenceOne());
    m_chooser.addOption("Auto Sequence 2", new frc.robot.commands.Auto.AutonSequences.AutonomousSequenceTwo());
    m_chooser.addOption("Auto Sequence 3", new frc.robot.commands.Auto.AutonSequences.AutonomousSequenceThree());

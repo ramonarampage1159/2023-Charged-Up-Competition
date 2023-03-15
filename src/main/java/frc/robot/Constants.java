@@ -167,9 +167,9 @@ public final class Constants {
 
       public final class AutoTimes{
         public static final double m_autonomousTimeOneSeconds = 1;
-        public static final double m_autonomousTimeTwoSeconds = 2;
+        public static final double m_autonomousTimeTwoSeconds = 2.5;
         public static final double m_autonomousTimeThreeSeconds = 3.236;
-        public static final double m_autonomousTimeFourSeconds = 4;
+        public static final double m_autonomousTimeFourSeconds = 4.5;
         public static final double m_autonomousTimeFiveSeconds = 5;
       }
 
@@ -188,7 +188,7 @@ public final class Constants {
           public static final double m_xAutoZero = 0;
           public static final double m_yAutoZero = 0;
           public static final double m_yAutoback = -0.27;
-          public static final double m_yAutoPos = 0.4;
+          public static final double m_yAutoPos = 0.27;
           public static final double m_zAutoZero = 0;
           public static final double m_zAutoZero2 = 0;
 

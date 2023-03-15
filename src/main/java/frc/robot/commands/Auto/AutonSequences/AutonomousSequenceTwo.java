@@ -20,17 +20,30 @@ public class AutonomousSequenceTwo extends SequentialCommandGroup {
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
       new SequentialCommandGroup(
-     new AutonElbow(0.15, 5.5),
-     new WaitCommand(0.5),
-      new AutonWrist(0.15, 2.7),
+
+      new AutonWrist(0.35, 2.2),
+
+      new WaitCommand(1.5),
+
+      new AutonElbow(0.25, 5.5),
+
       new WaitCommand(0.5),
+
+
+
       new AutonClamp(),
-      new WaitCommand(0.5),
-      new AutonWrist(0, 0),
-      new WaitCommand(0.5),
-      new AutonElbow(0, 0),
-      new WaitCommand(0.5),
-      new AutonDrive(Constants.AutonomousValues.AutoTimes.m_autonomousTimeOneSeconds,
+
+      new WaitCommand(1),
+
+      new AutonWrist(0.1, 0),
+
+      new WaitCommand(1),
+
+      new AutonElbow(0.15, 0),
+
+      new WaitCommand(1.5),
+      
+      new AutonDrive(Constants.AutonomousValues.AutoTimes.m_autonomousTimeThreeSeconds,
       Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_yAutoback,
      Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_xAutoZero, Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_zAutoZero)
     

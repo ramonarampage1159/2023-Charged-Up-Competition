@@ -9,66 +9,70 @@ import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.Constants;
 import frc.robot.commands.Auto.AutonClamp;
 import frc.robot.commands.Auto.AutonDrive;
-//import edu.wpi.first.wpilibj2.command.WaitCommand;
-//import frc.robot.Constants;
-//import frc.robot.commands.Auto.AutonClamp;
 import frc.robot.commands.Auto.AutonElbow;
 import frc.robot.commands.Auto.AutonWrist;
 
-public class AutonomousSequenceOne extends SequentialCommandGroup {
-  public AutonomousSequenceOne() {  
-    // Drive Backwards out of community 
+public class AutoHighCubeRight extends SequentialCommandGroup {
+  /** Creates a new AutoHighCubeRight. */
+  public AutoHighCubeRight() {
+    // Add your commands in the addCommands() call, e.g.
+    // addCommands(new FooCommand(), new BarCommand());
     addCommands(
-    new SequentialCommandGroup(
+      new SequentialCommandGroup(
       new AutonWrist(0.35, 2.2),
 
-      new WaitCommand(0.75),
+      new WaitCommand(0.35),
 
       new AutonElbow(0.25, 5.5),
 
-      new WaitCommand(0.75),
+      new WaitCommand(0.35),
 
       new AutonWrist(0.37, 3.6),
 
-      new WaitCommand(0.75),
+      new WaitCommand(0.35),
 
      new AutonElbow(0.31, 10.5),
 
-     new WaitCommand(0.75),
+     new WaitCommand(0.35),
 
      new AutonDrive(Constants.AutonomousValues.AutoTimes.m_autonomousTimeOneSeconds,
      Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_yAutoPos,
     Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_xAutoZero, Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_zAutoZero),
 
-      new WaitCommand(0.5),
+      new WaitCommand(0.3),
 
      new AutonClamp(),
 
-     new WaitCommand(0.75),
+     new WaitCommand(0.35),
 
      new AutonDrive(Constants.AutonomousValues.AutoTimes.m_autonomousTimeOneSeconds,
      Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_yAutoback,
     Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_xAutoZero, Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_zAutoZero),
 
-      new WaitCommand(0.5),
+      new WaitCommand(0.35),
 
      new AutonWrist(0.35, 2.2),
       
-      new WaitCommand(0.75),
+      new WaitCommand(0.35),
 
      new AutonWrist(0.1, 0),
 
-     new WaitCommand(0.75),
+     new WaitCommand(0.35),
 
      new AutonElbow(0.15, 0),
 
-     new WaitCommand(0.75),
+     new WaitCommand(0.3),
 
-     new AutonDrive(Constants.AutonomousValues.AutoTimes.m_autonomousTimeTwoSeconds,
+     new AutonDrive(Constants.AutonomousValues.AutoTimes.m_autonomousTimeHalfSeconds, 
+     Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_xAutoZero, 
+     Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_yAutoPos, Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_zAutoZero),
+
+     new WaitCommand(0.35),
+
+     new AutonDrive(Constants.AutonomousValues.AutoTimes.m_autonomousTimeFourSeconds,
      Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_yAutoback,
     Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_xAutoZero, Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_zAutoZero)
     )
-  );
-  }    
-   
+   );
+  }
 }

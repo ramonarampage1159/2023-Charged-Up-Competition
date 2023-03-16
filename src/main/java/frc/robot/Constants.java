@@ -59,7 +59,7 @@ public final class Constants {
     public static final double m_HighWristP = 0.37;
     public static final double m_HighWristI = 0.0; 
     public static final double m_HighWristD = 0.0;
-    public static final double m_HighWristRotations = 3.6;
+    public static final double m_HighWristRotations = 3.8;
   }
 
   public final class MidPIDCoefficients{
@@ -166,10 +166,12 @@ public final class Constants {
     public final class AutonomousValues{
 
       public final class AutoTimes{
+
+        public static final double m_autonomousTimeHalfSeconds = 0.5;
         public static final double m_autonomousTimeOneSeconds = 1;
         public static final double m_autonomousTimeTwoSeconds = 2.5;
         public static final double m_autonomousTimeThreeSeconds = 3.236;
-        public static final double m_autonomousTimeFourSeconds = 4.5;
+        public static final double m_autonomousTimeFourSeconds = 4;
         public static final double m_autonomousTimeFiveSeconds = 5;
       }
 

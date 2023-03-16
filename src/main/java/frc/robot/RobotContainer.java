@@ -55,11 +55,12 @@ public class RobotContainer {
     configureButtonBindings();
 
       m_chooser.setDefaultOption("no auto", null);
-   m_chooser.addOption("Auto Sequence 1",  new frc.robot.commands.Auto.AutonSequences.AutonomousSequenceOne());
-   m_chooser.addOption("Auto Sequence 2", new frc.robot.commands.Auto.AutonSequences.AutonomousSequenceTwo());
-   m_chooser.addOption("Auto Sequence 3", new frc.robot.commands.Auto.AutonSequences.AutonomousSequenceThree());
+        m_chooser.addOption("High Cube Left",  new frc.robot.commands.Auto.AutonSequences.AutoHighCubeLeft());
+        m_chooser.addOption("High Cube Dock", new frc.robot.commands.Auto.AutonSequences.AutoHighCubeDock());
+        m_chooser.addOption("High Cube Mid", new frc.robot.commands.Auto.AutonSequences.AutoHighCubeMid());
+        m_chooser.addOption("High Cube Right", new frc.robot.commands.Auto.AutonSequences.AutoHighCubeRight());
 
-    SmartDashboard.putData("Auto Choices:", m_chooser);
+      SmartDashboard.putData("Auto Choices:", m_chooser);
   
 
   }

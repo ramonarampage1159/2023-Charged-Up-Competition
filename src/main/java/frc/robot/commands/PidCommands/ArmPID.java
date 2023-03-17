@@ -149,7 +149,34 @@ public class ArmPID extends CommandBase {
       isFinishedStep = false;
 
     
-    } 
+    } else if(Robot.m_robotContainer.operatorController.getRawButtonPressed(Constants.OperatorController.JoystickButtons.m_startButton)){
+
+      if(!isFinishedStep){
+        double elbowPValue = Constants.ShelfPickup.m_shelfElbowP;
+        double elbowIValue = Constants.ShelfPickup.m_shelfElbowI;
+        double elbowDValue = Constants.ShelfPickup.m_shelfElbowD;
+        Robot.m_elbow.setPIDValues(elbowPValue, elbowIValue, elbowDValue, Constants.ZeroPIDCoefficients.m_ZerokMinOutput, Constants.ZeroPIDCoefficients.m_ZerokMaxOutput);
+        double elbowRotations = Constants.ShelfPickup.m_shelfElbowRotations;
+        Robot.m_elbow.setElbowReference(elbowRotations, CANSparkMax.ControlType.kPosition);
+      
+      isFinishedStep =true;
+
+      }
+       
+
+      if(isFinishedStep){
+
+      double wristPValue = Constants.ShelfPickup.m_shelfWristP;
+      double wristIValue = Constants.ShelfPickup.m_shelfWristI;
+      double wristDValue = Constants.ShelfPickup.m_shelfWristD;
+      Robot.m_wrist.setPIDValues(wristPValue, wristIValue, wristDValue, Constants.ZeroPIDCoefficients.m_ZerokMinOutput, Constants.ZeroPIDCoefficients.m_ZerokMaxOutput);
+      double wristRotations = Constants.ShelfPickup.m_shelfWristRotations;
+      Robot.m_wrist.setWristReference(wristRotations, CANSparkMax.ControlType.kPosition);
+  
+      }
+
+      isFinishedStep = false;
+    }
 
   }
 

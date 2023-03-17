@@ -55,11 +55,11 @@ public final class Constants {
     public static final double m_HighElbowP = 0.31;
     public static final double m_HighElbowI = 0.00; 
     public static final double m_HighElbowD = 0.0;
-    public static final double m_HighElbowRotations = 10.5 ;
+    public static final double m_HighElbowRotations = 11 ;
     public static final double m_HighWristP = 0.37;
     public static final double m_HighWristI = 0.0; 
     public static final double m_HighWristD = 0.0;
-    public static final double m_HighWristRotations = 3.8;
+    public static final double m_HighWristRotations = 3.6;
   }
 
   public final class MidPIDCoefficients{
@@ -94,13 +94,24 @@ public final class Constants {
     public static final double m_ClosedElbowD = 0.0;
     public static final double m_closedElbowRotations = 0;
 
-    public static final double m_closedWristP = 0.15;
+    public static final double m_closedWristP = 0.09;
     public static final double m_ClosedWristI = 0; 
     public static final double m_ClosedWristD = 0.0;
     public static final double m_closedWristRotations = 0;
   }
 
    
+  public final class ShelfPickup{
+    public static final double m_shelfElbowP = 0.15;
+    public static final double m_shelfElbowI = 0.0;
+    public static final double m_shelfElbowD = 0.0;
+    public static final double m_shelfElbowRotations = 8.9;
+
+    public static final double m_shelfWristP = 0.15;
+    public static final double m_shelfWristI = 0.0;
+    public static final double m_shelfWristD = 0.0;
+    public static final double m_shelfWristRotations = 3.5;
+  }
   
 
    public final class DriverController{

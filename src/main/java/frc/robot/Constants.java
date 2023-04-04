@@ -55,7 +55,7 @@ public final class Constants {
     public static final double m_HighElbowP = 0.31;
     public static final double m_HighElbowI = 0.00; 
     public static final double m_HighElbowD = 0.0;
-    public static final double m_HighElbowRotations = 11 ;
+    public static final double m_HighElbowRotations = 10.5 ;
     public static final double m_HighWristP = 0.37;
     public static final double m_HighWristI = 0.0; 
     public static final double m_HighWristD = 0.0;
@@ -84,7 +84,7 @@ public final class Constants {
     public static final double m_FloorPickupWristP = 0.15;
     public static final double m_FloorPickupWristI = 0.0; 
     public static final double m_FloorPickupWristD = 0.0;
-    public static final double m_FloorPickupWristRotations = 2.7;
+    public static final double m_FloorPickupWristRotations = 2.8;
   }
 
   public final class ClosedArmPID{

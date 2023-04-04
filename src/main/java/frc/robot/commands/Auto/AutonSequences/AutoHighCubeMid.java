@@ -21,47 +21,47 @@ public class AutoHighCubeMid extends SequentialCommandGroup {
       new SequentialCommandGroup(
         new AutonWrist(0.35, 2.2),
   
-        new WaitCommand(0.35),
+        new WaitCommand(0.2),
   
         new AutonElbow(0.25, 5.5),
   
-        new WaitCommand(0.35),
+        new WaitCommand(0.2),
   
         new AutonWrist(0.37, 3.6),
   
-        new WaitCommand(0.35),
+        new WaitCommand(0.2),
   
        new AutonElbow(0.31, 10.5),
   
-       new WaitCommand(0.35),
+       new WaitCommand(0.2),
   
        new AutonDrive(Constants.AutonomousValues.AutoTimes.m_autonomousTimeOneSeconds,
        Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_yAutoPos,
       Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_xAutoZero, Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_zAutoZero),
   
-        new WaitCommand(0.3),
+        new WaitCommand(0.2),
   
        new AutonClamp(),
   
-       new WaitCommand(0.35),
+       new WaitCommand(0.2),
   
        new AutonDrive(Constants.AutonomousValues.AutoTimes.m_autonomousTimeOneSeconds,
        Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_yAutoback,
        Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_xAutoZero, Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_zAutoZero),
   
-       new WaitCommand(0.35),
+       new WaitCommand(0.2),
   
        new AutonWrist(0.35, 2.2),
         
-       new WaitCommand(0.35),
+       new WaitCommand(0.2),
   
        new AutonWrist(0.1, 0),
   
-       new WaitCommand(0.35),
+       new WaitCommand(0.2),
   
        new AutonElbow(0.15, 0),
   
-       new WaitCommand(0.35),
+       new WaitCommand(0.2),
 
        new AutonDrive(Constants.AutonomousValues.AutoTimes.m_autonomousTimeOneSeconds,
        Constants.AutonomousValues.MotorSpeeds.DriveMotors.m_yAutoPos,
